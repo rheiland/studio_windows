@@ -147,7 +147,7 @@ class Config(QWidget):
         # self.motility_enabled.setAlignment(QtCore.Qt.AlignRight)
         # label.setFixedWidth(label_width)
         hbox.addWidget(self.virtual_walls)
-        self.vbox.addLayout(hbox)
+        # self.vbox.addLayout(hbox)
 
         # self.vbox.addWidget(QHLine())
 
@@ -288,9 +288,9 @@ class Config(QWidget):
         label.setStyleSheet("background-color: orange")
         label.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.vbox.addWidget(label)
+        # self.vbox.addWidget(label)
         self.cells_csv = QCheckBox("config/cells.csv")
-        self.vbox.addWidget(self.cells_csv)
+        # self.vbox.addWidget(self.cells_csv)
 
         #--------------------------
         # Dummy widget for filler??
@@ -387,9 +387,9 @@ class Config(QWidget):
 
         # rwh: I ended up *requiring* the original .xml (which is copied) have the <virtual_wall_at_domain_edge...> element.
         bval = "false"
-        if self.virtual_walls.isChecked():
-            bval = "true"
-        self.xml_root.find(".//virtual_wall_at_domain_edge").text = bval
+        # if self.virtual_walls.isChecked():
+        #     bval = "true"
+        # self.xml_root.find(".//virtual_wall_at_domain_edge").text = bval
 
         # rwh: Not sure why I couldn't get this to work, i.e., to *insert* the element (just one time) if it didn't exist.
         # vwall = self.xml_root.find(".//virtual_wall_at_domain_edge")
@@ -441,10 +441,10 @@ class Config(QWidget):
             self.xml_root.find(".//full_data//enable").text = 'false'
         self.xml_root.find(".//full_data//interval").text = self.full_interval.text()
 
-        if self.cells_csv.isChecked():
-            self.xml_root.find(".//initial_conditions//cell_positions").attrib['enabled'] = 'true'
-        else:
-            self.xml_root.find(".//initial_conditions//cell_positions").attrib['enabled'] = 'false'
+        # if self.cells_csv.isChecked():
+        #     self.xml_root.find(".//initial_conditions//cell_positions").attrib['enabled'] = 'true'
+        # else:
+        #     self.xml_root.find(".//initial_conditions//cell_positions").attrib['enabled'] = 'false'
 
         # TODO: verify valid type (numeric) and range?
         # xml_root.find(".//x_min").text = str(self.xmin.value)
